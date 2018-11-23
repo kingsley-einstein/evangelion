@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'PT Sans';
+    src: url('/fonts/PT_Sans-Web-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Marmelad';
+    src: url('/fonts/Marmelad-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Crimson';
+    src: url('/fonts/CrimsonText-Regular.ttf') format('truetype');
+}
+
+html {
+    display: block;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+span {
+    padding: 0;
+}
+
+a.button {
+    background-color: rgba(0, 0, 200, 1);
+    border-radius: 50px;
+}
+
+#container {
+    display: grid;
+    grid-template-areas: 
+    'header header header header header header'
+    'content content content content content content'
+    'footer footer footer footer footer footer';
+    height: 100vh;
+    width: 100vw;
+    background: url('../img/bible.jpg') no-repeat fixed 0% 50%, linear-gradient(90deg, rgba(0, 120, 120, 1), rgba(0, 128, 128, 1));
+    background-size: cover;
+    background-blend-mode: hard-light;
+    color: #f5f5f5;
+    font-family: 'PT Sans', sans-serif;
+    overflow: hidden;
+}
+
+.header {
+    grid-area: header;
+    height: 10vh;
+}
+
+.content {
+    text-align: center;
+    grid-area: content;
+    height: 80vh;
+    font-family: 'Open Sans', sans-serif;
+    vertical-align: middle;
+}
+
+.footer {
+    grid-area: footer;
+    height: 10vh;
+    overflow: hidden;
+}
+
+.center {
+    margin: 100px auto;
+    width: 50%;
+    display: block;
+    text-align: center;
+    padding: 70px 0;
+}
+
+.navbar {
+    display: grid;
+    grid-template-areas:
+    'left left center center right right';
+    background-color: rgba(80, 0, 200, 1);
+    height: inherit;
+}
+
+.navbar-item-to-left {
+    grid-area: left;
+}
+
+.navbar-item-to-center {
+    grid-area: center;
+}
+
+.navbar-item-to-right {
+    grid-area: right;
+}
+
+.navbar li a {
+    float: left;
+    text-decoration: none;
+    color: #f6f6f6;
+    padding: 12px 14px;
+    display: block;
+    text-align: center;
+    font-family: 'Marmelad', sans-serif;
+    transition: all 2s cubic-bezier(0.25, 0.5, 0.75, 1);
+}
+
+.navbar li a:not(.button):hover {
+    color: rgba(0, 200, 200, 0.5);
+}
+
+.bottom-navbar {
+    display: grid;
+    grid-template-areas:
+    'left left center center right right';
+    background-color: #000000;
+    border: thin outset transparent;
+    height: inherit;
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px;
+}
+
+a.button:hover {
+    background-color: rgba(0, 100, 100, 1);
+}
+
+span.welcome {
+    font-size: 30px;
+}
+
+.modal {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    margin: auto;
+    opacity: 0;
+    width: 20%;
+    transition: all 500ms cubic-bezier(0.25, 0.5, 0.75, 1);
+}
+
+.modal.active {
+    opacity: 1;
+    top: 10rem;
+    left: 30rem;
+    z-index: 9999;
+}
+
+.close {
+    background-color: transparent;
+    font-size: 30px;
+    float: right;
+    border-top-right-radius: inherit;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.close:hover {
+    background-color: #dcdcdc;
+}
+
+#container.blurred {
+    filter: blur(2px);
+}
+
+.custom-material-form-group {
+    margin: 20px;
+    padding: 20px;
+}
+
+.custom-material-form-group input {
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-top: none;
+    border-bottom: thin solid #dcdcdc;
+    border-right: none;
+    border-left: none;
+    background: transparent;
+    outline: none;
+    display: block;
+    padding: 8px;
+    transition: all 1s cubic-bezier(0.25, 0.75, 0.5, 1);
+}
+
+.custom-material-form-group button {
+    border: none;
+    background-color: rgba(80, 0, 200, 1);
+    width: 100%;
+    height: 40px;
+    outline: none;
+    font-family: 'Crimson', sans-serif;
+    font-size: 17px;
+    color: #f5f5f5;
+    cursor: pointer;
+}
+
+.custom-material-form-group input:focus {
+    border-color: rgba(90, 0, 200, 1);
+}
