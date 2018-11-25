@@ -123,6 +123,10 @@ a.button {
     color: rgba(0, 200, 200, 0.5);
 }
 
+.navbar.disable li a {
+    pointer-events: none;
+}
+
 .bottom-navbar {
     display: grid;
     grid-template-areas:
@@ -164,7 +168,7 @@ span.welcome {
 
 .close {
     background-color: transparent;
-    font-size: 30px;
+    font-size: 40px;
     float: right;
     border-top-right-radius: inherit;
     cursor: pointer;
