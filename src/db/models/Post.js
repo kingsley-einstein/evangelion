@@ -1,35 +1,34 @@
 import { Schema } from 'mongoose';
+import paginate from 'mongoose-paginate';
 
-class Post {
-
-    static postSchema() {
-        return new Schema({
-            title: {
-                type: String,
-                required: true,
-                minlength: 8
-            },
-            content: {
-                type: String,
-                required: true,
-                minlength: 9
-            },
-            author: {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            },
-            comments: [
-                {
-                    type: Schema.Types.ObjectId,
-                    ref: 'Comment'
-                }
-            ],
-            date: {
-                type: Date,
-                default: Date.now()
-            }
-        })
+const PostSchema = new Schema({
+    
+    title: {
+        type: String,
+        required: true,
+        minlength: 8
+    },
+    content: {
+        type: String,
+        required: true,
+        minlength: 9
+    },
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ],
+    date: {
+        type: Date,
+        default: Date.now()
     }
-}
+});
 
-export default Post;
+PostSchema.plugin(paginate);
+
+export default PostSchema;
