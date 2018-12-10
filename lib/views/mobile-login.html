@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>Evangelion | Login</title>
+        <link rel="stylesheet" href="/css/mobile-forms.css">        
+    </head>
+    <body>
+        <div class="card">
+            <div class="custom-material-form-group">
+                <form id="signInForm">
+                    <input type="text" id="username_signin" name="username" placeholder="Enter Username">
+                    <input type="password" id="password_signin" name="password" placeholder="Enter Password">
+                    <button type="submit">Sign In</button>
+                </form>
+                <button id="reg" class="redden">Register</button>
+            </div>
+        </div>
+        <script>
+            const regBtn = document.getElementById('reg');
+
+            regBtn.onclick = (event) => {
+                location.assign('/register');
+            }
+        </script>
+    </body>
+</html>

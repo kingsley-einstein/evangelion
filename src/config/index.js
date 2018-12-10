@@ -19,7 +19,7 @@ export class Entry {
     static useStatics(app, express) {
         const opts = {
             setHeaders: (res, loc, stat) => {
-                res.set('Service-Worker-Allowed', '/')
+                res.set('Service-Worker-Allowed', '/');
             }
         };
         app.use(express.static(path.join(__dirname, '../statics'), opts));

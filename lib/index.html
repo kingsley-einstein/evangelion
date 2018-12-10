@@ -4,18 +4,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/css/desktop.css" media="screen and (min-width: 789px)">
+        <link rel="stylesheet" href="/css/desktop.css" media="screen and (min-width: 620px)">
+        <link rel="stylesheet" href="/css/mobile.css" media="screen and (max-width: 619px)">
         <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+        <title>Evangelion | Share the goodnews of the kingdom to all who care to know</title>
     </head>
     <body>
+        <div id="head-links" class="head-links-mobile">
+            <ul>
+                <li><a href="login">Sign In</a></li>
+                <li><a href="register">Sign Up</a></li>
+            </ul>
+        </div>
         <div id="sign-in-modal" class="modal">
             <span id="close-sign-in-modal" class="close">
                 &times;
             </span>
             <div class="custom-material-form-group">
-                <form novalidate>
-                    <input type="text" placeholder="Username">
-                    <input type="password" placeholder="Password">
+                <form id="signInForm">
+                    <input type="text" placeholder="Username" id="username_signin">
+                    <input type="password" placeholder="Password" id="password_signin">
                     <button type="submit">Sign In</button>
                 </form>
             </div>
@@ -25,17 +33,23 @@
                 &times;
             </span>
             <div class="custom-material-form-group">
-                <form novalidate>
-                    <input type="email" placeholder="Enter your email">
-                    <input type="text" placeholder="Enter your username">
-                    <input type="password" placeholder="Enter your password">
+                <form id="signUpForm">
+                    <input type="email" placeholder="Enter your email" id="email_signup">
+                    <input type="text" placeholder="Enter your username" id="username_signup">
+                    <input type="password" placeholder="Enter your password" id="password_signup">
                     <button type="submit">Sign Up</button>
                 </form>
                 </div>
                 </div>
         <div id="container">
             <div class="navbar" id="navbar">
-                <div class="navbar-item-to-left"></div>
+                <div class="navbar-item-to-left">
+                    <button id="hamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </button>
+                </div>
                 <div class="navbar-item-to-center"></div>
                 <div class="navbar-item-to-right">
                     <ul>
@@ -50,12 +64,21 @@
             <div class="icon-div">
                 <div class="flex-item">
                     <img src="/img/bible.png" alt="img"/>
+                    <div>
+                        Sharing the word.
+                    </div>
                 </div>
                 <div class="flex-item">
                     <img src="/img/dove.png" alt="img"/>
+                    <div>
+                        Letting the Spirit lead.
+                    </div>
                 </div>
                 <div class="flex-item">
                     <img src="/img/worship.png" alt="img"/>
+                    <div>
+                        Congregating in harmony.
+                    </div>
                 </div>
             </div>
             <div class="bottom-navbar">
@@ -64,5 +87,12 @@
         </div>
         <script src="/js/modals.js"></script>
         <script src="/js/sw-register.js"></script>
+        <script src="/js/hamburger.js"></script>
+        <script src="/js/_fetch.js"></script>
+        <script>
+            window.addEventListener('load', (event) => {
+                console.log(document.childNodes);
+            });
+        </script>
     </body>
 </html>

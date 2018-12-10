@@ -12,7 +12,7 @@ class UserQuery {
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(12))
         })
         .then((value) => res.status(200).json(value))
-        .catch((rejected) => res.status(rejected.status || 500).json(rejected));
+        .catch((rejected) => res.status(500).json(rejected));
     }
 
     static logUserIn(req, res) {
