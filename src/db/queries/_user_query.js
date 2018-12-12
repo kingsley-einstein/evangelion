@@ -18,14 +18,20 @@ class UserQuery {
     static logUserIn(req, res) {
         _User.findOneAndUpdate({email: req.body.email}, {isActive: true}, {})
              .then((response) => {
-                 if (bcrypt.compareSync(req.body.password, response.password)) {
-                     const payload = {id: response._id};
-                     const token = jwt.sign(payload, jwtOpts.secretOrKey);
-
-                     res.status(200).json({user: response, token: token});
+                 if (response) {
+                    if (bcrypt.compareSync(req.body.password, response.password)) {
+                        const payload = {id: response._id};
+                        const token = jwt.sign(payload, jwtOpts.secretOrKey);
+   
+                        res.status(200).json({user: response, token: token});
+                    }
+                    else {
+                        res.status(500).json({message: "Incorrect password"});
+                    }
                  }
                  else {
-                     res.status(500).json({message: "Incorrect password"});
+                     res.status(404).json({message: "User not found"});
+                     console.log(req.body);
                  }
              })
              .catch((rejected) => res.status(rejected.status || 500).json(rejected));
@@ -45,6 +51,12 @@ class UserQuery {
                  res.status(200).json(user);
              })
              .catch((rejected) => res.status(rejected.status).json(rejected));
+    }
+
+    static logUserOut(req, res) {
+        _User.findOneAndUpdate({id: req.query.id}, {isActive: false}, {})
+             .then((response) => console.log(response))
+             .catch((rejected) => console.log(rejected));
     }
 }
 

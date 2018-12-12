@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#dashboard-container {
+    display: flex;
+    flex-flow: column wrap;
+    height: 120vh;
+    width: 100vw;
+}

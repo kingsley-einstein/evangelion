@@ -10,6 +10,7 @@ class ServeData {
     static attachEndpoints(app) {
         app.post('/users/register', UserQuery.create);
         app.post('/users/login', UserQuery.logUserIn);
+        app.put('/users/logout', opts.passport.authenticate('jwt', {session: false}), UserQuery.logUserOut);
         app.get('/users', opts.passport.authenticate('jwt', {session: false}), UserQuery.findUser);
         app.get('/users/all', opts.passport.authenticate('jwt', {session: false}), UserQuery.findAllUsers);
         app.post('/posts', opts.passport.authenticate('jwt', {session: false}), PostQuery.createNew);
